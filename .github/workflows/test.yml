@@ -4,8 +4,8 @@ on: [push, pull_request]
 
 env:
   CARGO_TERM_COLOR: always
-  DOC_LLVM_FEATURE: llvm17-0
-  DOC_LLVM_VERSION: '17.0'
+  DOC_LLVM_FEATURE: llvm18-0
+  DOC_LLVM_VERSION: '18.0'
   DOC_PATH: target/doc
 
 jobs:
@@ -39,6 +39,7 @@ jobs:
           - ["15.0", "15-0"]
           - ["16.0", "16-0"]
           - ["17.0", "17-0"]
+          - ["18.0", "18-0"]
         # only use ubuntu-22.04 for llvm 16 and higher
         include:
           - os: ubuntu-20.04
@@ -46,6 +47,8 @@ jobs:
             llvm-version: ["16.0", "16-0"]
           - os: ubuntu-22.04
             llvm-version: ["17.0", "17-0"]
+          - os: ubuntu-22.04
+            llvm-version: ["18.0", "18-0"]
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
